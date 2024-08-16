@@ -25,8 +25,6 @@ class Person(ABC):
     
     @name.setter
     def name(self, value: str):
-        if not value:
-            raise ValueError("Name cannot be empty.")
         self.__name = value
     
     @property
@@ -36,8 +34,6 @@ class Person(ABC):
     
     @phone.setter
     def phone(self, value: str):
-        if not value:
-            raise ValueError("Phone number cannot be empty.")
         self.__phone = value
 
     @property
@@ -47,8 +43,6 @@ class Person(ABC):
     
     @nationality.setter
     def nationality(self, value: str):
-        if not value:
-            raise ValueError("Nationality cannot be empty.")
         self.__nationality = value
     
     def __str__(self) -> str:
