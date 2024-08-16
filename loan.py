@@ -1,5 +1,7 @@
+from datetime import datetime
+
 class Loan:
-    def __init__(self, copy: Copy, user: User, borrow_date: datetime, return_date: Optional[datetime] = None):
+    def __init__(self, copy, user, borrow_date, return_date):
         self.copy = copy
         self.user = user
         self.borrow_date = borrow_date
