@@ -12,3 +12,12 @@ class Loan:
         if self.return_date is None:
             return "Borrowed"
         return "Returned"
+    
+    @status.setter
+    def status(self, value):
+        if value == "Returned":
+            self.return_date = datetime.now()
+        else:
+            raise ValueError("Invalid status! Loan must be returned before changing its status.")
+
+        
