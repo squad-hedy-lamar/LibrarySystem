@@ -1,8 +1,10 @@
+from datetime import datetime
+from loan import Loan
 class Library():
 
-    def __init__(self,books: list,loans: list):
+    def __init__(self,books):
         self.__books = books
-        self.__loans = loans
+        self.__loans = []
 
     def __str__(self):
         return f'Books: {self.__books}\nLoans: {self.__loans}'
@@ -11,10 +13,10 @@ class Library():
     def books(self):
         return self.__books
     
-    def books(self,booksList:list):
+    def books(self,booksList):
         # check if the parameter's value is from list type
         if isinstance(booksList,list):
-            self.__livros = booksList
+            self.__books = booksList
         else:
             raise
         ValueError('Invalid type! The parameter must be of type list.')
@@ -29,8 +31,29 @@ class Library():
         if isinstance(loansList,list):
             self.__loans = loansList
         else:
-            raise
-        ValueError('Invalid type! The parameter must be of type list.')
+            raise ValueError('Invalid type! The parameter must be of type list.')
+
+
+    def add_book(self, book):
+        self.__books.append(book)
+
+    def borrow_book(self, book, user):
+        copy = book.borrow_copy()
+        if copy :
+            loan = Loan(copy, user, datetime.now(), None, book)
+            self.__loans.append(loan)
+            return loan
+        return None
+    
+    def return_book(self, loan):
+        loan.return_date = datetime.now()
+        loan.copy.borrowed = False
+
+    def renew_book(self, loan):
+        loan.renew_book()
+
+    def list_all_loans(self):
+        return self.__loans
 
 
 
