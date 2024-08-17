@@ -2,5 +2,5 @@
 from person import Person
 
 class Author(Person):
-    def __init__(self, name, phone, nationality):
-        super().__init__(name, phone, nationality)
+    def __init__(self,id, name, phone, nationality):
+        super().__init__(id,name, phone, nationality)

@@ -1,14 +1,13 @@
-#importar Copy 
-#importar Genre
-#importar Author
-from typing import List, Optional
+from copy_class import Copy_class
+from genre import Genre
+from author import Author
 
 class Book:
 # title, Publisher, genres, authors, copies = private
 # max_renewals = public
 # add_copy(str), borrow_copy, return_copy
 
-    def __init__(self, title: str, publisher: str, genres: List[Genre], authors: List[Author], max_renewals: int):
+    def __init__(self, title, publisher, genres, authors, max_renewals):
         self.__title = title
         self.__publisher = publisher
         self.__genres = genres
@@ -61,3 +60,23 @@ class Book:
     def copies(self, value):
         self.__copies = value
     #
+
+    def add_copy(self, copy):
+        self.__copies.append(copy)
+
+    def borrow_copy(self):
+        for copy in self.__copies:
+            if copy.borrowed == False:
+                copy.borrowed = True
+                return copy
+        return None
+    
+    def return_copy(self, copy):
+        copy.borrowed = False
+
+
+
+
+
+
+

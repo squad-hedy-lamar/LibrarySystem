@@ -1,5 +1,5 @@
-class Copy:
-    def __init__(self, code: str):
+class Copy_class:
+    def __init__(self, code):
         self.__code = code
         self.__borrowed = False
 
@@ -12,5 +12,5 @@ class Copy:
         return self.__borrowed
 
     @borrowed.setter
-    def borrowed(self, value: bool):
+    def borrowed(self, value):
         self.__borrowed = value
